@@ -1,0 +1,55 @@
+{
+  "endpoints": [
+    {
+      "name": "profile_me",
+      "method": "GET",
+      "url": "https://api.linkedin.com/v2/me",
+      "headers": {},
+      "params": {},
+      "required_scopes": [
+        "r_liteprofile"
+      ],
+      "enabled": true
+    },
+    {
+      "name": "custom_get_example",
+      "method": "GET",
+      "url": "https://api.linkedin.com/v2/me",
+      "headers": {},
+      "params": {
+        "projection": "(id,localizedFirstName,localizedLastName)"
+      },
+      "required_scopes": [
+        "r_liteprofile"
+      ],
+      "enabled": true
+    },
+    {
+      "name": "placeholder_post_example",
+      "method": "POST",
+      "url": "https://api.linkedin.com/v2/ugcPosts",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body_template": {
+        "author": "urn:li:person:{YOUR_PERSON_URN}",
+        "lifecycleState": "PUBLISHED",
+        "specificContent": {
+          "com.linkedin.ugc.ShareContent": {
+            "shareCommentary": {
+              "text": "Placeholder post body"
+            },
+            "shareMediaCategory": "NONE"
+          }
+        },
+        "visibility": {
+          "com.linkedin.ugc.MemberNetworkVisibility": "PUBLIC"
+        }
+      },
+      "required_scopes": [
+        "w_member_social"
+      ],
+      "enabled": false
+    }
+  ]
+}
